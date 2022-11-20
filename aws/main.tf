@@ -19,7 +19,7 @@ module "aws-vpm-gcp" {
   vpc_id = module.vpc.vpc.id
   aws_cidr_block = module.vpc.vpc.cidr_block
   region = "us-east1"
-  account_id = "104166243925788569884"
+  account_id = "hoangdv"
   subnet_id = module.vpc.public_subnet
   ig_id = module.vpc.igw
 }

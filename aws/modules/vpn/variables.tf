@@ -53,3 +53,8 @@ variable "subnet_id" {
 variable "ig_id" {
   type = string
 }
+
+variable "project_id" {
+  type = string
+  default = "vpn-site-to-site-aws-gcp"
+}

@@ -80,8 +80,19 @@ resource "google_compute_firewall" "firewall" {
   source_ranges = [ var.aws_cidr_block, "0.0.0.0/0", "192.168.3.0/24", "192.168.4.0/24" ]
 }
 
-data "google_service_account" "hoangdv" {
+# data "google_service_account" "hoangdv" {
+#   account_id = var.account_id
+# }
+
+resource "google_service_account" "hoangdv" {
   account_id = var.account_id
+  display_name = "hoangdv"
+}
+
+resource "google_project_iam_binding" "hoangdv" {
+  project = var.project_id
+  role = "roles/editor"
+  members = [ "serviceAccount:${google_service_account.hoangdv.email}" ]
 }
 
 resource "google_compute_instance" "gcp-aws" {
@@ -105,7 +116,11 @@ resource "google_compute_instance" "gcp-aws" {
   }
 
   service_account {
-    email = data.google_service_account.hoangdv.email
+    email = google_service_account.hoangdv.email
     scopes = [ "cloud-platform" ]
   }
+
+  depends_on = [
+    google_project_iam_binding.hoangdv
+  ]
 }

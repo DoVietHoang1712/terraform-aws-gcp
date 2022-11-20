@@ -16,6 +16,6 @@ provider "aws" {
 }
 
 provider "google" {
-  project = "aws-gcp-tutorial"
+  project = "vpn-site-to-site-aws-gcp"
   region = "us-east1"
 }
