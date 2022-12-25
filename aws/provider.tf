@@ -22,5 +22,5 @@ provider "google" {
 
 provider "vault" {
   address = "http://18.204.230.186:8200"
-  token   = "hvs.dhJIkMV6SHjuDX4DGOgXWrGN"
+  token   = var.token
 }

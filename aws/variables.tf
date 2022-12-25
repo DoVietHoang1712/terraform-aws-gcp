@@ -17,3 +17,7 @@ variable "account_id" {
 variable "gcp_region" {
   type = string
 }
+
+variable "token" {
+  type = string
+}
