@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "aws-gcp-tutorial",
+  "private_key_id": "542ceccaa3cabb4a2418f4e70543b2502a137f20",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDSMxVZrK46pvUh\n+dbONLFDE9Xgj6GmmDUbRYxNoLtqBn6qd0lt8POgKRxZJlk3LMdAgRBacce+QvlS\nPPor/Y+hvJmDnjQqQ6lXY8Kjn5tYF0y+idktLaXy3+6bR3oS4sPDJR4k6YzcnfTL\nxZCsoxo6Jeu83WJD9eruFnAkK3XaEa74LrDuGb86l/qKE54998htqUQF9wHvFaKA\nFKezlPGqm/p4hPbXWE5R/T0e1OJvn9i8tg3JMO83BUIXH+TIMP+NrHDEmOxI7Jvx\nYgcx6SMN9eLtI8EhLf7DekCjsO9OIyS6vJCQzyNkpKvsXcuVyP0XY5BZSvT7fs/L\nvZZqP2FlAgMBAAECggEALV6USaZBduxpdZto91odNqa138HwuLYapFfHGExMl25u\ncZnMshuzYgrtkPp7gDK8kRoqbvMnE1R+XvdFYjBZC6ZbFjMT/FldWDzymoGNNJ7W\n1DuJsjwrmPgnlsF/QktKyLiewIXefxHi8AalGvYbZ5iewMWh+5w9SIV0UAJHbjlF\ntGy3JcUyes9JKy9SzQUyZ1oYW9HJy4d+ppFi1uyfdfr/s7U98iKUE/IEtSSOT3hf\nV9XSYKpck9Vmg9tz3nNEWlH+twrSNXmdk6qY2jBRFiqP/Fblm/6rW/xio7G0wAJo\nbXYWxKeLTN3nUyqZ4UNgf1MmizAiPUSZcDNC10p6EwKBgQDvQTra+/NHR1IWLL6I\nKTimDJFrtxKFlUe8qSPyyIOCBpFlgK+E2a/6/vrUVgjSGuS9y1kw0/dwDay6FeB8\nk7JFYaOelI97IfoLSvujWYYedfSWS/xnUkfqTa0B/1gTNz/o9cC1TvIbcZBOKww0\nPjstAPuxdn36l3/ci4gt1fwtDwKBgQDg6UPs680B6IudEcsCunwXzzL6gVP0vVFi\nA+4oGFAXmA1pL6p83qfldlDuoapQBByXbHEVV19syfQg3KCyIGd5sEbOBkakxS/z\nhXM4jPGaqy1DyBMlTxaX349SRsavqjVhN0B/Is1eTdE/acgl3QBP03NtqTqbFMtn\niB2uiNrySwKBgCB/lcUFECiQcX/9l+va3Y0AjAg7l9J5UoM33mAuCF7zEXDeJ/k9\nsH/BfsS04wHXEVcOdhEB2cxorxufuRxy23Y9KwJxX4P0O4ipKMEpeeRNVWnM7H4E\nWSxkXKm2y3nguVelegWmsZA0vss/Yar/AP698XJLjBUr2vxUH61KMbTVAoGAeel3\nTEE0ysgGhYlThZMYGL/TXj4kCBFmv75ppYooP+HHwzB3NWBrmdHcZL102BKifOHn\nGi5WJ14A2p8869DsxeVrO9njCQVpzJKVth2QCMqoqokU97A7Cu+/fFWo9SdJ7/xH\nFaMDtw5vUfRA7WUx+hMgCl0ky1MmPmRl0mmUZKkCgYEAumPbWoT+E/YFpRNEL4kj\nJBkVIiDMyMbYzICY0K5NZyToR78IBXoqGagTxIqbIq23Emts6J49u1W2is9hJTBI\ntOLX/a2LyuuIXvlogNV77+mX+b3+mP1qepF6TycUQ6neFG0nQHV1TIcYV9EvMSYv\n+Y+keULKAWhYruZAMm5B04w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "hoangdv@aws-gcp-tutorial.iam.gserviceaccount.com",
+  "client_id": "104166243925788569884",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/hoangdv%40aws-gcp-tutorial.iam.gserviceaccount.com"
+}
