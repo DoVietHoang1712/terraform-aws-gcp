@@ -1,40 +1,40 @@
 variable "vpc_id" {
-	type = string
+  type = string
 }
 
 variable "region" {
-	type = string
+  type = string
 }
 
 variable "gcp_network" {
-	type = string
-	description = "GCP Network Name"
-	default = "hoangdv-network"
+  type        = string
+  description = "GCP Network Name"
+  default     = "hoangdv-network"
 }
 
 variable "gcp_subnet" {
-	type = string
-	description = "GCP Network Subnet Name"
-	default = "private-network"
+  type        = string
+  description = "GCP Network Subnet Name"
+  default     = "private-network"
 }
 
 variable "vpn_name" {
-	type = string
-	default = "aws-vpn-gcp"
+  type    = string
+  default = "aws-vpn-gcp"
 }
 
 variable "name" {
-	type = string
-	default = "aws-vpn-gcp"
+  type    = string
+  default = "aws-vpn-gcp"
 }
 
 variable "tunnel_name" {
-	type = string
-	default = "aws-vpn-gcp-tunnel"
+  type    = string
+  default = "aws-vpn-gcp-tunnel"
 }
 
 variable "aws_cidr_block" {
-	type = string
+  type = string
 }
 
 variable "account_id" {
@@ -42,7 +42,7 @@ variable "account_id" {
 }
 
 variable "instance_type" {
-  type = string
+  type    = string
   default = "t2.micro"
 }
 
@@ -55,6 +55,6 @@ variable "ig_id" {
 }
 
 variable "project_id" {
-  type = string
+  type    = string
   default = "vpn-site-to-site-aws-gcp"
 }

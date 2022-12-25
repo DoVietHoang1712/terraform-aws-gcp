@@ -1,41 +1,41 @@
 resource "aws_vpc" "vpc" {
-	cidr_block = var.vpc_cidr
-	enable_dns_hostnames = true
-	tags = {
-		"Name" = var.vpc_name
-	}
+  cidr_block           = var.vpc_cidr
+  enable_dns_hostnames = true
+  tags = {
+    "Name" = var.vpc_name
+  }
 }
 
 resource "aws_subnet" "private_subnet" {
-	count = length(var.subnets.private)
+  count = length(var.subnets.private)
 
-	vpc_id = aws_vpc.vpc.id
-	cidr_block = var.subnets.private[count.index]
-	availability_zone = var.subnets.zone[count.index % length(var.subnets.zone)]
+  vpc_id            = aws_vpc.vpc.id
+  cidr_block        = var.subnets.private[count.index]
+  availability_zone = var.subnets.zone[count.index % length(var.subnets.zone)]
 
-	tags = {
-		"Name" = "private-subnet"
-	}
+  tags = {
+    "Name" = "private-subnet"
+  }
 }
 
 resource "aws_subnet" "public_subnet" {
-	count = length(var.subnets.public)
+  count = length(var.subnets.public)
 
-	vpc_id = aws_vpc.vpc.id
-	cidr_block = var.subnets.public[count.index]
-	availability_zone = var.subnets.zone[count.index % length(var.subnets.zone)]
+  vpc_id            = aws_vpc.vpc.id
+  cidr_block        = var.subnets.public[count.index]
+  availability_zone = var.subnets.zone[count.index % length(var.subnets.zone)]
 
-	tags = {
-		"Name" = "public-subnet"
-	}
+  tags = {
+    "Name" = "public-subnet"
+  }
 }
 
 resource "aws_internet_gateway" "ig" {
-	vpc_id = aws_vpc.vpc.id
+  vpc_id = aws_vpc.vpc.id
 
-	tags = {
-		"Name" = "MyIGW"
-	}
+  tags = {
+    "Name" = "MyIGW"
+  }
 }
 
 # resource "aws_route_table" "public" {
