@@ -58,3 +58,4 @@ variable "project_id" {
   type    = string
   default = "vpn-site-to-site-aws-gcp"
 }
+
