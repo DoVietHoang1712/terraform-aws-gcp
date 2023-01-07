@@ -1,3 +1,14 @@
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
+
+  owners = ["099720109477"]
+}
+
 resource "aws_vpc" "vpc" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
@@ -64,8 +75,8 @@ resource "aws_route_table_association" "instance" {
   route_table_id = aws_route_table.private.id
 }
 
-resource "aws_security_group" "sg-bastion" {
-  name        = "sg-bastion"
+resource "aws_security_group" "bastion-sg" {
+  name        = "bastion-sg"
   description = "Allow all trafic"
   vpc_id      = aws_vpc.vpc.id
 
@@ -85,14 +96,14 @@ resource "aws_security_group" "sg-bastion" {
   }
 
   tags = {
-    "Name" = "sg-bastion"
+    "Name" = "bastion-sg"
   }
 }
 
 resource "aws_instance" "bastion" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
-  vpc_security_group_ids      = [aws_security_group.sg.id]
+  vpc_security_group_ids      = [aws_security_group.bastion-sg.id]
   associate_public_ip_address = true
   subnet_id                   = aws_subnet.public_subnet[0].id
   tags = {
