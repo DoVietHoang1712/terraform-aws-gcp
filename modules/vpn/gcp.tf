@@ -77,7 +77,7 @@ resource "google_compute_firewall" "firewall" {
   }
 
   priority      = 1000
-  source_ranges = [var.aws_cidr_block, "0.0.0.0/0", "192.168.3.0/24", "192.168.4.0/24"]
+  source_ranges = [var.aws_cidr_block, "0.0.0.0/0", "172.16.1.0/24", "172.16.3.0/24"]
 }
 
 # data "google_service_account" "hoangdv" {
