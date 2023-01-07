@@ -52,7 +52,7 @@ resource "aws_security_group" "sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [google_compute_subnetwork.default.ip_cidr_range, "0.0.0.0/0"]
+    cidr_blocks = [google_compute_subnetwork.default.ip_cidr_range, "0.0.0.0/0", "172.16.2.0/24"]
   }
 
 
@@ -72,7 +72,7 @@ resource "aws_instance" "aws-gcp" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
   vpc_security_group_ids      = [aws_security_group.sg.id]
-  associate_public_ip_address = true
+  associate_public_ip_address = false
   subnet_id                   = var.subnet_id[0]
   tags = {
     "Name" = "aws-gcp"

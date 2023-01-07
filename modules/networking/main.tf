@@ -38,6 +38,67 @@ resource "aws_internet_gateway" "ig" {
   }
 }
 
+resource "aws_eip" "nat_ip" {
+  vpc = true
+}
+
+resource "aws_nat_gateway" "nat_gateway" {
+  allocation_id = aws_eip.nat_ip.id
+  subnet_id     = aws_subnet.private_subnet[0].id
+
+  tags = {
+    "Name" = "MyNGW"
+  }
+}
+
+resource "aws_route_table" "private" {
+  vpc_id = aws_vpc.vpc.id
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat_gateway.id
+  }
+}
+
+resource "aws_route_table_association" "instance" {
+  subnet_id      = aws_subnet.private_subnet[0].id
+  route_table_id = aws_route_table.private.id
+}
+
+resource "aws_security_group" "sg-bastion" {
+  name        = "sg-bastion"
+  description = "Allow all trafic"
+  vpc_id      = aws_vpc.vpc.id
+
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    "Name" = "sg-bastion"
+  }
+}
+
+resource "aws_instance" "bastion" {
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = var.instance_type
+  vpc_security_group_ids      = [aws_security_group.sg.id]
+  associate_public_ip_address = true
+  subnet_id                   = aws_subnet.public_subnet[0].id
+  tags = {
+    "Name" = "bastion"
+  }
+}
 # resource "aws_route_table" "public" {
 # 	vpc_id = aws_vpc.vpc.id
 
