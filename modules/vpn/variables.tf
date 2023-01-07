@@ -46,7 +46,11 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "subnet_id" {
+variable "private_subnet_id" {
+  type = list(string)
+}
+
+variable "public_subnet_id" {
   type = list(string)
 }
 

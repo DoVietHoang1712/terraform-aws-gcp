@@ -13,20 +13,21 @@ provider "aws" {
   secret_key = data.vault_aws_access_credentials.creds.secret_key
 }
 
-# module "vpc" {
-#   source   = "./modules/networking"
-#   project  = local.project_name
-#   vpc_cidr = var.vpc_cidr
-#   subnets  = var.aws_subnets
-#   vpc_name = var.vpc_name
-# }
+module "vpc" {
+  source   = "./modules/networking"
+  project  = local.project_name
+  vpc_cidr = var.vpc_cidr
+  subnets  = var.aws_subnets
+  vpc_name = var.vpc_name
+}
 
-# module "aws-vpm-gcp" {
-#   source         = "./modules/vpn"
-#   vpc_id         = module.vpc.vpc.id
-#   aws_cidr_block = module.vpc.vpc.cidr_block
-#   region         = var.gcp_region
-#   account_id     = var.account_id
-#   subnet_id      = module.vpc.private_subnet
-#   ig_id          = module.vpc.igw
-# }
+module "aws-vpm-gcp" {
+  source            = "./modules/vpn"
+  vpc_id            = module.vpc.vpc.id
+  aws_cidr_block    = module.vpc.vpc.cidr_block
+  region            = var.gcp_region
+  account_id        = var.account_id
+  private_subnet_id = module.vpc.private_subnet
+  public_subnet_id  = module.vpc.public_subnet
+  ig_id             = module.vpc.igw
+}

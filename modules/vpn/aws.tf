@@ -73,7 +73,7 @@ resource "aws_instance" "aws-gcp" {
   instance_type               = var.instance_type
   vpc_security_group_ids      = [aws_security_group.sg.id]
   associate_public_ip_address = false
-  subnet_id                   = var.subnet_id[0]
+  subnet_id                   = var.private_subnet_id[0]
   key_name                    = "hoang-us-east-1"
   tags = {
     "Name" = "aws-gcp"
@@ -102,7 +102,7 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_route_table_association" "public_association" {
-  for_each       = { for k, v in var.subnet_id : k => v }
+  for_each       = { for k, v in var.public_subnet_id : k => v }
   subnet_id      = each.value
   route_table_id = aws_route_table.public.id
 }
