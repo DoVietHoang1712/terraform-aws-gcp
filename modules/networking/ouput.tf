@@ -13,3 +13,7 @@ output "private_subnet" {
 output "igw" {
   value = aws_internet_gateway.ig.id
 }
+
+output "ngw" {
+  value = aws_nat_gateway.nat_gateway.id
+}
