@@ -74,6 +74,7 @@ resource "aws_instance" "aws-gcp" {
   vpc_security_group_ids      = [aws_security_group.sg.id]
   associate_public_ip_address = false
   subnet_id                   = var.subnet_id[0]
+  key_name                    = "hoang-us-east-1"
   tags = {
     "Name" = "aws-gcp"
   }
